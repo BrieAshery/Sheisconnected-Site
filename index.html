@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheisconnected Initiative — Home</title>
+<meta name="description" content="Sheisconnected Initiative: Business Development Services for rural women, and digital safety education for youth.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html"><img src="images/logo-white-cropped.png" alt="Sheisconnected" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+<div class="gold-strip"></div>
+
+<div class="hero">
+  <div class="eyebrow">Sheisconnected Initiative</div>
+  <h1 id="hero-title">Connecting people to <span>real opportunities</span> to grow</h1>
+  <p class="sub" id="hero-subtitle">Loading…</p>
+  <div class="cta-row">
+    <a href="programs.html" class="btn-primary">See Our Programs →</a>
+    <a href="contact.html#support" class="btn-outline">Support Us</a>
+  </div>
+</div>
+
+<div class="track-select">
+  <div class="wrap">
+    <div class="track-grid">
+      <a href="programs.html#women" class="track-card women">
+        <div class="ticon">👩🏾‍🌾</div>
+        <h3>BDS for Rural Women</h3>
+        <p>Business training, formalization support, and preparation to access formal credit.</p>
+        <div class="goto">Learn more →</div>
+      </a>
+      <a href="programs.html#youth" class="track-card youth">
+        <div class="ticon">🧑🏾‍💻</div>
+        <h3>Digital Safety for Youth</h3>
+        <p>Teaching students to protect themselves online and use technology to advance themselves.</p>
+        <div class="goto">Learn more →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="light-section">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-label women" style="background:#fff3cf; color:var(--gold-dark);">Our Goal</span>
+    <h2 id="goal-title" style="margin:0 auto 16px; max-width:600px;">Loading…</h2>
+    <p class="lead" id="goal-text" style="margin:0 auto;"></p>
+  </div>
+</section>
+
+<section class="light-section off" id="support-preview">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-label youth">Support Us</span>
+    <h2 id="support-title" style="margin:0 auto 16px; max-width:600px;">Loading…</h2>
+    <p class="lead" id="support-text" style="margin:0 auto 28px;"></p>
+    <a href="contact.html#support" class="btn-primary" style="background:var(--gold); color:var(--charcoal);">Support Us Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo-icon-cropped.png" alt="" class="footer-logo">
+    <h2>Contact Us</h2>
+    <p class="lead">For partnerships, funding, or questions about our programs.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><div class="lbl">Phone</div>+255 672 244 461</div>
+      <div class="contact-item"><div class="lbl">Email</div>info@sheisconnected.org</div>
+      <div class="contact-item"><div class="lbl">Office</div>Dar es Salaam, Tanzania</div>
+    </div>
+    <a href="mailto:info@sheisconnected.org" class="btn-primary">Send Email</a>
+    <div class="social-row">
+      <a href="https://www.facebook.com/sheisconnected/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/she_is_connected/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/company/sheisconnected/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-links">Sheisconnected Initiative &copy; 2026</div>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="content-loader.js"></script>
+<script>
+  // Handles the invite/login email link redirecting back here correctly.
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+<script>
+  (async () => {
+    const c = await loadContent("content/home.json");
+    if (!c) return;
+    document.getElementById("hero-title").innerHTML =
+      c.hero_title_line1 + ' <span>' + c.hero_title_highlight + '</span> ' + c.hero_title_line2;
+    setText("hero-subtitle", c.hero_subtitle);
+    setText("goal-title", c.goal_title);
+    setText("goal-text", c.goal_text);
+    setText("support-title", c.support_title);
+    setText("support-text", c.support_text);
+  })();
+</script>
+
+</body>
+</html>

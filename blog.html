@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Sheisconnected Initiative</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html"><img src="images/logo-white-cropped.png" alt="Sheisconnected" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+<div class="gold-strip"></div>
+
+<div class="page-hero">
+  <h1>Blog</h1>
+  <p>Updates from our programs and community.</p>
+</div>
+
+<section class="light-section">
+  <div class="wrap">
+    <div class="blog-grid" id="blog-grid">
+      <p class="blog-empty">Loading…</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo-icon-cropped.png" alt="" class="footer-logo">
+    <h2>Contact Us</h2>
+    <p class="lead">For partnerships, funding, or questions about our programs.</p>
+    <div class="social-row">
+      <a href="https://www.facebook.com/sheisconnected/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/she_is_connected/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/company/sheisconnected/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-links">Sheisconnected Initiative &copy; 2026</div>
+  </div>
+</footer>
+
+<script>
+  // EDIT ME: set these to your actual GitHub username and repo name once
+  // you've created the repo — required so the blog knows which posts exist.
+  // This only works if the repo is PUBLIC (see note in chat).
+  const GITHUB_OWNER = "YOUR-GITHUB-USERNAME";
+  const GITHUB_REPO = "sheisconnected-site";
+
+  async function listPosts() {
+    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/content/posts`;
+    const res = await fetch(apiUrl);
+    if (!res.ok) throw new Error("Could not list posts (check GITHUB_OWNER/REPO are set correctly, and the repo is public)");
+    const files = await res.json();
+    return files.filter((f) => f.name.endsWith(".json")).map((f) => f.name.replace(".json", ""));
+  }
+
+  async function loadPost(slug) {
+    const res = await fetch("content/posts/" + slug + ".json?v=" + Date.now());
+    if (!res.ok) return null;
+    const data = await res.json();
+    data.slug = slug;
+    return data;
+  }
+
+  (async () => {
+    const grid = document.getElementById("blog-grid");
+    try {
+      const slugs = await listPosts();
+      if (slugs.length === 0) {
+        grid.innerHTML = '<p class="blog-empty">No posts yet.</p>';
+        return;
+      }
+      const posts = (await Promise.all(slugs.map(loadPost))).filter(Boolean);
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      grid.innerHTML = "";
+      posts.forEach((post) => {
+        const a = document.createElement("a");
+        a.className = "blog-card";
+        a.href = "post.html?slug=" + encodeURIComponent(post.slug);
+        a.innerHTML =
+          (post.image ? '<img src="' + post.image + '" alt="">' : "") +
+          '<div class="blog-card-body">' +
+          '<div class="blog-card-date">' + new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + '</div>' +
+          '<h3>' + post.title + '</h3>' +
+          '<p>' + (post.excerpt || "") + '</p>' +
+          '</div>';
+        grid.appendChild(a);
+      });
+    } catch (err) {
+      console.warn(err);
+      grid.innerHTML = '<p class="blog-empty">Could not load posts. If you just set this up, check that GITHUB_OWNER and GITHUB_REPO are set correctly in blog.html, and that the repo is public.</p>';
+    }
+  })();
+</script>
+
+</body>
+</html>

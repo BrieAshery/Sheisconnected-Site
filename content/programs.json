@@ -1,0 +1,21 @@
+{
+  "women_problem_title": "They run real businesses, but remain invisible to the formal financial system",
+  "women_problem_text": "Alternative credit scoring models currently used in East Africa rely heavily on mobile money transaction data — leaving out women whose businesses run on cash, and who depend on the trust of their savings group (chama/VICOBA) rather than digital data.",
+  "women_model_text": "30–50 women are carefully selected through existing chama/VICOBA groups and agricultural marketing cooperatives (AMCOS).",
+  "women_arc": [
+    { "title": "Months 1–2: Selection & Baseline Assessment", "text": "Entering through existing group leaders, selecting participants deliberately." },
+    { "title": "Months 2–4: Financial Literacy", "text": "Training in daily bookkeeping, costing and pricing, and beginning the NIDA registration process." },
+    { "title": "Months 4–8: Formalization Support", "text": "Hands-on help with BRELA registration, TIN, a business license, and a bank account." },
+    { "title": "Months 8–11: Loan Readiness", "text": "Women who reach a strong readiness level are connected to partner financial institutions." },
+    { "title": "Months 11–12: Evaluation & Outcomes", "text": "Documenting each participant's real outcomes — the evidence base for the next phase." }
+  ],
+  "pilot_text": "Biashara Yangu is a digital tool being piloted with our first cohort — one part of a broader BDS service, not the project itself.",
+  "policy_items": [
+    "Tanzania's National Financial Inclusion Framework (2023–2028) has shifted from \"access\" toward \"quality of usage.\"",
+    "Agricultural credit guarantee schemes are helping smallholder farmers access loans — but participating financial institutions still need to identify which farmer is trustworthy. That's where we fit in.",
+    "From July 2026, digital payments are legally required for crop sales through AMCOS — directly relevant to our agricultural participants."
+  ],
+  "women_status_note": "We are at an early stage. Real participant numbers will be shown here once available.",
+  "youth_problem_text": "Computers and internet access in schools are a good start, but without digital safety training, young people are at risk of online scams, harassment, and misuse of their personal information.",
+  "youth_status_note": "This program is being redesigned from its original \"Digital School Club\" model — toward direct safety and advancement training, not just device access. Goal: connecting 100+ schools across Tanzania by 2030."
+}

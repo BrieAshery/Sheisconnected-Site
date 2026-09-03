@@ -1,0 +1,114 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/sheisconnected-site
+  branch: main
+  # EDIT ME: set this once you know your deployed OAuth proxy's URL
+  base_url: https://YOUR-OAUTH-PROXY.up.railway.app
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "content/home.json"
+        label: "Home Page Content"
+        name: "home"
+        fields:
+          - { label: "Hero Title (line 1)", name: "hero_title_line1", widget: "string" }
+          - { label: "Hero Title (highlighted word)", name: "hero_title_highlight", widget: "string" }
+          - { label: "Hero Title (line 2)", name: "hero_title_line2", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "Goal Section Title", name: "goal_title", widget: "string" }
+          - { label: "Goal Section Text", name: "goal_text", widget: "text" }
+          - { label: "Support Section Title", name: "support_title", widget: "string" }
+          - { label: "Support Section Text", name: "support_text", widget: "text" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - file: "content/about.json"
+        label: "About Page Content"
+        name: "about"
+        fields:
+          - { label: "Intro Paragraph 1", name: "intro_paragraph_1", widget: "text" }
+          - { label: "Intro Paragraph 2", name: "intro_paragraph_2", widget: "text" }
+          - { label: "Vision Text", name: "vision_text", widget: "text" }
+          - { label: "Mission Text", name: "mission_text", widget: "text" }
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Avatar Initial (used if no photo)", name: "initial", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+
+  - name: "programs"
+    label: "Programs Page"
+    files:
+      - file: "content/programs.json"
+        label: "Programs Page Content"
+        name: "programs"
+        fields:
+          - { label: "Women's Track: Problem Title", name: "women_problem_title", widget: "string" }
+          - { label: "Women's Track: Problem Text", name: "women_problem_text", widget: "text" }
+          - { label: "Women's Track: Model Intro Text", name: "women_model_text", widget: "text" }
+          - label: "Women's Track: 12-Month Program Steps"
+            name: "women_arc"
+            widget: "list"
+            fields:
+              - { label: "Step Title", name: "title", widget: "string" }
+              - { label: "Step Text", name: "text", widget: "text" }
+          - { label: "Pilot Project Description", name: "pilot_text", widget: "text" }
+          - label: "Policy Alignment Items"
+            name: "policy_items"
+            widget: "list"
+          - { label: "Women's Track: Status Note", name: "women_status_note", widget: "text" }
+          - { label: "Youth Track: Problem Text", name: "youth_problem_text", widget: "text" }
+          - { label: "Youth Track: Status Note", name: "youth_status_note", widget: "text" }
+
+  - name: "contact"
+    label: "Contact Page"
+    files:
+      - file: "content/contact.json"
+        label: "Contact Page Content"
+        name: "contact"
+        fields:
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Office Address", name: "office", widget: "string" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string" }
+          - { label: "Support Section Intro Text", name: "support_intro", widget: "text" }
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    files:
+      - file: "content/gallery.json"
+        label: "Gallery Photos"
+        name: "gallery"
+        fields:
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "text" }

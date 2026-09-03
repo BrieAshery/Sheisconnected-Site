@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Sheisconnected Initiative</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html"><img src="images/logo-white-cropped.png" alt="Sheisconnected" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+<div class="gold-strip"></div>
+
+<div class="page-hero">
+  <h1>About Us</h1>
+  <p>Empowering students and women in local communities through digital skills, financial literacy, and mentorship.</p>
+</div>
+
+<section class="light-section">
+  <div class="wrap">
+    <span class="section-label women" style="background:#fff3cf; color:var(--gold-dark);">Who We Are</span>
+    <h2>SheIsConnected Initiative</h2>
+    <p class="lead" id="intro-1">Loading…</p>
+    <p class="lead" id="intro-2"></p>
+
+    <div class="vm-grid">
+      <div class="vm-card vision">
+        <h3>👁️ Our Vision</h3>
+        <p id="vision-text"></p>
+      </div>
+      <div class="vm-card mission">
+        <h3>🎯 Our Mission</h3>
+        <p id="mission-text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light-section off">
+  <div class="wrap">
+    <span class="section-label youth">Our Team</span>
+    <h2>The People Behind This Work</h2>
+    <p class="lead">A small team, with a genuine commitment to real change.</p>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo-icon-cropped.png" alt="" class="footer-logo">
+    <h2>Contact Us</h2>
+    <p class="lead">For partnerships, funding, or questions about our programs.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><div class="lbl">Phone</div>+255 672 244 461</div>
+      <div class="contact-item"><div class="lbl">Email</div>info@sheisconnected.org</div>
+      <div class="contact-item"><div class="lbl">Office</div>Dar es Salaam, Tanzania</div>
+    </div>
+    <a href="mailto:info@sheisconnected.org" class="btn-primary">Send Email</a>
+    <div class="social-row">
+      <a href="https://www.facebook.com/sheisconnected/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/she_is_connected/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/company/sheisconnected/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-links">Sheisconnected Initiative &copy; 2026</div>
+  </div>
+</footer>
+
+<script src="content-loader.js"></script>
+<script>
+  (async () => {
+    const c = await loadContent("content/about.json");
+    if (!c) return;
+    setText("intro-1", c.intro_paragraph_1);
+    setText("intro-2", c.intro_paragraph_2);
+    setText("vision-text", c.vision_text);
+    setText("mission-text", c.mission_text);
+
+    const grid = document.getElementById("team-grid");
+    grid.innerHTML = "";
+    (c.team || []).forEach((member) => {
+      const card = document.createElement("div");
+      card.className = "team-card";
+      const avatarHtml = member.photo
+        ? '<img class="team-photo" src="' + member.photo + '" alt="' + member.name + '">'
+        : '<div class="team-avatar">' + (member.initial || member.name[0]) + '</div>';
+      card.innerHTML =
+        avatarHtml +
+        '<h3>' + member.name + '</h3>' +
+        '<div class="role">' + member.role + '</div>' +
+        '<p>' + member.bio + '</p>';
+      grid.appendChild(card);
+    });
+  })();
+</script>
+
+</body>
+</html>

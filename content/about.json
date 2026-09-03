@@ -1,0 +1,29 @@
+{
+  "intro_paragraph_1": "SheIsConnected Initiative is a community-based organization that empowers students and women in local communities through digital skills, financial literacy, education, and mentorship. We prioritize girls and women to help close gender gaps and ensure they have access to opportunities, resources, and support to thrive.",
+  "intro_paragraph_2": "We believe that when students and women are connected to education, technology, and economic opportunities, they gain the skills, confidence, and agency to create positive change in their communities.",
+  "vision_text": "To connect more than 100 schools across Tanzania by 2030, and to be a bridge between informal-sector women and formal financial opportunity.",
+  "mission_text": "To provide practical digital and financial training to students and women, building a real pathway from learning to opportunity.",
+  "team": [
+    {
+      "name": "Bridget",
+      "role": "Executive Director",
+      "bio": "Executive Director of SheIsConnected, leading programs that connect girls and women to digital skills, technology, and inclusive finance.",
+      "initial": "B",
+      "photo": ""
+    },
+    {
+      "name": "Neema",
+      "role": "Board Member",
+      "bio": "Board Member and School Digital Club manager, driven to inspire students with practical digital skills and learning opportunities.",
+      "initial": "N",
+      "photo": ""
+    },
+    {
+      "name": "Siporah",
+      "role": "Board Member, General Secretary",
+      "bio": "In her role as General Secretary and Board Member, she drives initiatives that turn digital inclusion into real opportunities for women and girls in local communities.",
+      "initial": "S",
+      "photo": ""
+    }
+  ]
+}

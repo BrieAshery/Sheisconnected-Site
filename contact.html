@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Sheisconnected Initiative</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html"><img src="images/logo-white-cropped.png" alt="Sheisconnected" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+<div class="gold-strip"></div>
+
+<div class="page-hero">
+  <h1>Contact Us</h1>
+  <p>For questions, partnerships, or to support our work.</p>
+</div>
+
+<section class="light-section">
+  <div class="wrap">
+    <div class="feature-grid" style="margin-bottom: 40px;">
+      <div class="feature-card">
+        <span class="icon">📞</span>
+        <h3>Phone</h3>
+        <p><a id="contact-phone-link" href="#"></a></p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">✉️</span>
+        <h3>Email</h3>
+        <p><a id="contact-email-link" href="#"></a></p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">📍</span>
+        <h3>Office</h3>
+        <p id="contact-office"></p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🌐</span>
+        <h3>Social Media</h3>
+        <p>
+          <a id="contact-fb" href="#" target="_blank">Facebook</a> ·
+          <a id="contact-ig" href="#" target="_blank">Instagram</a> ·
+          <a id="contact-li" href="#" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light-section off" id="support">
+  <div class="wrap">
+    <span class="section-label women" style="background:#fff3cf; color:var(--gold-dark);">Support Us</span>
+    <h2>Show Your Interest in Supporting Us</h2>
+    <p class="lead" id="support-intro">Loading…</p>
+
+    <div class="form-card">
+      <form id="supportForm">
+        <div class="form-field">
+          <label for="donorName">Your Name</label>
+          <input type="text" id="donorName" required placeholder="Your full name">
+        </div>
+        <div class="form-field">
+          <label for="donorEmail">Email</label>
+          <input type="email" id="donorEmail" required placeholder="your-email@example.com">
+        </div>
+        <div class="form-field">
+          <label for="donorPhone">Phone Number (optional)</label>
+          <input type="text" id="donorPhone" placeholder="07XX XXX XXX">
+        </div>
+        <div class="form-field">
+          <label for="supportType">Type of Support</label>
+          <select id="supportType">
+            <option value="Financial contribution">Financial contribution</option>
+            <option value="Institutional partnership">Institutional partnership (MFI/Funder)</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="donorMessage">Message (optional)</label>
+          <textarea id="donorMessage" placeholder="Write anything you'd like us to know"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit Your Interest</button>
+        <p class="form-note">
+          We don't currently have an online payment system. This form
+          will open your email with your details, and our team will
+          follow up with you on next steps.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="content-loader.js"></script>
+<script>
+  let CONTACT_EMAIL = "info@sheisconnected.org";
+
+  (async () => {
+    const c = await loadContent("content/contact.json");
+    if (!c) return;
+    CONTACT_EMAIL = c.email || CONTACT_EMAIL;
+
+    document.getElementById("contact-phone-link").textContent = c.phone;
+    document.getElementById("contact-phone-link").href = "tel:" + c.phone.replace(/\s+/g, "");
+    document.getElementById("contact-email-link").textContent = c.email;
+    document.getElementById("contact-email-link").href = "mailto:" + c.email;
+    document.getElementById("contact-office").textContent = c.office;
+    document.getElementById("contact-fb").href = c.facebook_url;
+    document.getElementById("contact-ig").href = c.instagram_url;
+    document.getElementById("contact-li").href = c.linkedin_url;
+    setText("support-intro", c.support_intro);
+  })();
+
+  document.getElementById('supportForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('donorName').value;
+    const email = document.getElementById('donorEmail').value;
+    const phone = document.getElementById('donorPhone').value;
+    const type = document.getElementById('supportType').value;
+    const message = document.getElementById('donorMessage').value;
+
+    const subject = encodeURIComponent('Interest in Supporting Us — ' + type);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + (phone || '(none)') + '\n' +
+      'Type of Support: ' + type + '\n\n' +
+      'Message:\n' + (message || '(none)')
+    );
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo-icon-cropped.png" alt="" class="footer-logo">
+    <h2>Contact Us</h2>
+    <p class="lead">For partnerships, funding, or questions about our programs.</p>
+    <div class="social-row">
+      <a href="https://www.facebook.com/sheisconnected/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/she_is_connected/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/company/sheisconnected/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-links">Sheisconnected Initiative &copy; 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
