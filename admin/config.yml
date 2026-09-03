@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/sheisconnected-site
+  repo: BrieAshery/sheisconnected-site
   branch: main
   # EDIT ME: set this once you know your deployed OAuth proxy's URL
-  base_url: https://YOUR-OAUTH-PROXY.up.railway.app
+  base_url: https://sheisconnected-oauth-proxy-production.up.railway.app
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
