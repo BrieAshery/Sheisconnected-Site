@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: BrieAshery/sheisconnected-site
+  repo: YOUR-GITHUB-USERNAME/sheisconnected-site
   branch: main
   # EDIT ME: set this once you know your deployed OAuth proxy's URL
-  base_url: https://sheisconnected-oauth-proxy-production.up.railway.app
+  base_url: https://YOUR-OAUTH-PROXY.up.railway.app
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
@@ -69,6 +69,13 @@ collections:
           - { label: "Women's Track: Status Note", name: "women_status_note", widget: "text" }
           - { label: "Youth Track: Problem Text", name: "youth_problem_text", widget: "text" }
           - { label: "Youth Track: Status Note", name: "youth_status_note", widget: "text" }
+          - { label: "Market Track: Problem Title", name: "market_problem_title", widget: "string" }
+          - { label: "Market Track: Problem Text", name: "market_problem_text", widget: "text" }
+          - { label: "Market Track: Approach Text", name: "market_model_text", widget: "text" }
+          - label: "Market Track: Partnership Benefits"
+            name: "market_benefits"
+            widget: "list"
+          - { label: "Market Track: Status Note", name: "market_status_note", widget: "text" }
 
   - name: "contact"
     label: "Contact Page"
@@ -98,6 +105,21 @@ collections:
             fields:
               - { label: "Photo", name: "image", widget: "image" }
               - { label: "Caption", name: "caption", widget: "string", required: false }
+
+  - name: "partners"
+    label: "Partners"
+    files:
+      - file: "content/partners.json"
+        label: "Partner Organizations"
+        name: "partners"
+        fields:
+          - label: "Partners"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Optional — shows the name as text if no logo is uploaded" }
+              - { label: "Website URL", name: "url", widget: "string", required: false }
 
   - name: "blog"
     label: "Blog Posts"
