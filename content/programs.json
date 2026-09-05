@@ -1,13 +1,18 @@
 {
   "women_problem_title": "They run real businesses, but remain invisible to the formal financial system",
   "women_problem_text": "Alternative credit scoring models currently used in East Africa rely heavily on mobile money transaction data — leaving out women whose businesses run on cash, and who depend on the trust of their savings group (chama/VICOBA) rather than digital data.",
-  "women_model_text": "30–50 women are carefully selected through existing chama/VICOBA groups and agricultural marketing cooperatives (AMCOS).",
-  "women_arc": [
-    { "title": "Months 1–2: Selection & Baseline Assessment", "text": "Entering through existing group leaders, selecting participants deliberately." },
-    { "title": "Months 2–4: Financial Literacy", "text": "Training in daily bookkeeping, costing and pricing, and beginning the NIDA registration process." },
-    { "title": "Months 4–8: Formalization Support", "text": "Hands-on help with BRELA registration, TIN, a business license, and a bank account." },
-    { "title": "Months 8–11: Loan Readiness", "text": "Women who reach a strong readiness level are connected to partner financial institutions." },
-    { "title": "Months 11–12: Evaluation & Outcomes", "text": "Documenting each participant's real outcomes — the evidence base for the next phase." }
+  "women_model_text": "A focused 3-month core program gets each woman through financial literacy and the fastest formalization steps — followed by an open-ended continuation where she keeps building her record at her own pace, with loan-readiness assessed whenever her data genuinely supports it, not on a fixed deadline.",
+  "phase1_title": "Phase 1: Core Program (3 Months, Intensive)",
+  "phase1_steps": [
+    { "title": "Month 1: Selection & Baseline", "text": "Entering through existing group leaders, selecting participants deliberately, and completing a baseline financial and readiness assessment." },
+    { "title": "Month 2: Financial Literacy & Fast-Track Formalization", "text": "Daily bookkeeping training begins alongside hands-on support starting NIDA and BRELA registration — the two steps most other formalization depends on." },
+    { "title": "Month 3: TIN & Graduation to Self-Paced Continuation", "text": "TIN registration completed. Each woman graduates into Phase 2 with a personal plan for her remaining formalization steps." }
+  ],
+  "phase2_title": "Phase 2: Graduate Continuation (Open-Ended)",
+  "phase2_steps": [
+    { "title": "Ongoing: Remaining Formalization", "text": "Business license and bank account completed at each woman's own pace, with periodic light-touch check-ins rather than intensive coaching." },
+    { "title": "Ongoing: Sustained Bookkeeping", "text": "Continued daily use of Biashara Yangu builds a real, multi-month transaction and loan-repayment history — the actual evidence a lender needs." },
+    { "title": "Whenever Ready: Loan Readiness & MFI Matching", "text": "Once her data genuinely supports it — not on a fixed timeline — she's connected to a partner financial institution." }
   ],
   "pilot_text": "Biashara Yangu is a digital tool being piloted with our first cohort — one part of a broader BDS service, not the project itself.",
   "policy_items": [
@@ -17,5 +22,14 @@
   ],
   "women_status_note": "We are at an early stage. Real participant numbers will be shown here once available.",
   "youth_problem_text": "Computers and internet access in schools are a good start, but without digital safety training, young people are at risk of online scams, harassment, and misuse of their personal information.",
-  "youth_status_note": "This program is being redesigned from its original \"Digital School Club\" model — toward direct safety and advancement training, not just device access. Goal: connecting 100+ schools across Tanzania by 2030."
+  "youth_status_note": "This program is being redesigned from its original \"Digital School Club\" model — toward direct safety and advancement training, not just device access. Goal: connecting 100+ schools across Tanzania by 2030.",
+  "market_problem_title": "Financial institutions struggle to reach — and understand — the unreached",
+  "market_problem_text": "Rural, informal-sector women are frequently identified as a target market, but rarely understood well enough to actually design services for. Financial institutions often lack the ground-level research and trusted community access needed to find out why a given service isn't being adopted, and what would actually change that — research that's expensive and slow to build from scratch.",
+  "market_model_text": "We conduct direct research into why unreached rural populations don't use specific financial products, and what would need to change for adoption — using a pool of trained graduate researchers who work directly in the communities we already have trust and reach in.",
+  "market_benefits": [
+    "For financial institutions: real go-to-market research on the unreached rural segment specifically, plus a trusted community channel — reducing the cost of acquiring customers who are otherwise expensive and slow to reach.",
+    "For our graduate researchers: paid, meaningful employment conducting real fieldwork, building research and market-entry experience.",
+    "For rural communities: financial products and services actually designed around why they currently don't use them, not assumptions about them."
+  ],
+  "market_status_note": "This program is in early design. We're seeking financial institution partners interested in shaping a pilot research engagement together."
 }

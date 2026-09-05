@@ -56,8 +56,16 @@ collections:
           - { label: "Women's Track: Problem Title", name: "women_problem_title", widget: "string" }
           - { label: "Women's Track: Problem Text", name: "women_problem_text", widget: "text" }
           - { label: "Women's Track: Model Intro Text", name: "women_model_text", widget: "text" }
-          - label: "Women's Track: 12-Month Program Steps"
-            name: "women_arc"
+          - { label: "Phase 1 Title", name: "phase1_title", widget: "string" }
+          - label: "Phase 1 Steps (3-Month Core Program)"
+            name: "phase1_steps"
+            widget: "list"
+            fields:
+              - { label: "Step Title", name: "title", widget: "string" }
+              - { label: "Step Text", name: "text", widget: "text" }
+          - { label: "Phase 2 Title", name: "phase2_title", widget: "string" }
+          - label: "Phase 2 Steps (Open-Ended Continuation)"
+            name: "phase2_steps"
             widget: "list"
             fields:
               - { label: "Step Title", name: "title", widget: "string" }

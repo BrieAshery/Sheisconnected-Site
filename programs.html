@@ -67,9 +67,14 @@
 <section class="light-section off women-theme">
   <div class="wrap">
     <span class="section-label women">Our Model</span>
-    <h2>A 12-month program, for a small cohort — depth over scale</h2>
+    <h2>A focused 3-month core program, then open-ended graduate support</h2>
     <p class="lead" id="women-model-text"></p>
-    <div class="arc" id="women-arc"></div>
+
+    <h3 id="phase1-title" style="color:var(--gold-dark); font-size:1.05rem; margin-bottom:14px;"></h3>
+    <div class="arc" id="phase1-arc" style="margin-bottom:32px;"></div>
+
+    <h3 id="phase2-title" style="color:var(--gold-dark); font-size:1.05rem; margin-bottom:14px;"></h3>
+    <div class="arc" id="phase2-arc"></div>
   </div>
 </section>
 
@@ -215,14 +220,20 @@
       marketBenefitsEl.appendChild(li);
     });
 
-    const arcEl = document.getElementById("women-arc");
-    arcEl.innerHTML = "";
-    (c.women_arc || []).forEach((step) => {
-      const item = document.createElement("div");
-      item.className = "arc-item";
-      item.innerHTML = '<div class="arc-num"></div><div><h4>' + step.title + '</h4><p>' + step.text + '</p></div>';
-      arcEl.appendChild(item);
-    });
+    function renderArc(elId, steps) {
+      const el = document.getElementById(elId);
+      el.innerHTML = "";
+      (steps || []).forEach((step) => {
+        const item = document.createElement("div");
+        item.className = "arc-item";
+        item.innerHTML = '<div class="arc-num"></div><div><h4>' + step.title + '</h4><p>' + step.text + '</p></div>';
+        el.appendChild(item);
+      });
+    }
+    setText("phase1-title", c.phase1_title);
+    renderArc("phase1-arc", c.phase1_steps);
+    setText("phase2-title", c.phase2_title);
+    renderArc("phase2-arc", c.phase2_steps);
 
     const policyEl = document.getElementById("policy-list");
     policyEl.innerHTML = "";
